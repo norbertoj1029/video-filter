@@ -2,6 +2,8 @@
 
 Web extension that detects the video, and allows you to apply the filter (blur/opacity) using a customizable keyboard shortcut.
 
+This README documents **this repository** as maintained by **karas** ([karas011029@gmail.com](mailto:karas011029@gmail.com)). It is based on the open-source [FilterVideo](https://github.com/karas011029-svg/filter-video) project (GPL-3.0). Chrome Web Store and Firefox Add-ons links below point to the **published upstream** listing unless you publish your own build.
+
 ## Features
 
 - Video filters with customizable keyboard shortcut:
@@ -20,7 +22,7 @@ Web extension that detects the video, and allows you to apply the filter (blur/o
 ### NEW in v1.2.0:
 
 - English-Arabic keyboard change support:
-  - Automatic key mapping for Arabic keyboards so you can use the same shortcut key to change English<->Arabic without having to update shortcut key as each key from Arabic is mapped to its equivalent English key (QWERTY for Arabic 101 and AZERTY for Arabic 102)
+  - Automatic key mapping for Arabic keyboards so you can use the same shortcut key to change English↔Arabic without having to update the shortcut key as each key from Arabic is mapped to its equivalent English key (QWERTY for Arabic 101 and AZERTY for Arabic 102)
 - Quick reset functionality:
   - Customizable reset shortcut key
   - Instant recovery without popup interaction
@@ -38,9 +40,9 @@ Web extension that detects the video, and allows you to apply the filter (blur/o
 
 #### From Chrome Web Store
 
-1. Visit the [FilterVideo Chrome Web Store page](https://chromewebstore.google.com/detail/filtervideo/gchjhchmcjnphmbkmllgfalidiakaoea)
+1. Visit the [FilterVideo Chrome Web Store page](https://chromewebstore.google.com/detail/filtervideo/gchjhchmcjnphmbkmllgfalidiakaoea) (upstream listing)
 2. Read the description and reviews
-3. Click "Add to Chrome" if you're happy with the extension or just want to try it out
+3. Click "Add to Chrome" if you want to use that published build
 
 #### From Source
 
@@ -54,14 +56,14 @@ Web extension that detects the video, and allows you to apply the filter (blur/o
 
 #### From Firefox Add-ons
 
-1. Visit the [FilterVideo Firefox Add-ons page](https://addons.mozilla.org/en-US/firefox/addon/filtervideo/)
+1. Visit the [FilterVideo Firefox Add-ons page](https://addons.mozilla.org/en-US/firefox/addon/filtervideo/) (upstream listing)
 2. Read the description and reviews
-3. Click "Add to Firefox" if you're happy with the extension or just want to try it out
+3. Click "Add to Firefox" if you want to use that published build
 
 #### From Source
 
 1. Clone this repository
-2. Run `mv firefox/manifest.json src/manifest.json` to replace chrome manifest with firefox manifest
+2. Run `mv firefox/manifest.json src/manifest.json` to replace the Chrome manifest with the Firefox manifest (Unix-like shells). On Windows PowerShell you can use `Move-Item -Force firefox\manifest.json src\manifest.json` (back up `src\manifest.json` first if needed).
 3. Run `npm install` then `npm run dev` in the root directory
 4. Open Firefox and navigate to `about:debugging`
 5. Click "This Firefox"
@@ -89,7 +91,7 @@ Web extension that detects the video, and allows you to apply the filter (blur/o
 
 Important: Due to cross-origin security, there are some limitations:
 
-- Keyboard shortcut only work when focus is outside the video frame
+- Keyboard shortcuts only work when focus is outside the video frame
 - To use effectively:
   1. Zoom the page if needed (two-finger gesture) but don't toggle full screen
   2. Click just outside the video frame to ensure the shortcut works
@@ -98,21 +100,21 @@ Important: Due to cross-origin security, there are some limitations:
 "Auto-Filter on Detection" in settings:
 
 - Videos will automatically be filtered when detected
-- Then you can toggle filter manually using the shortcut key
+- Then you can toggle the filter manually using the shortcut key
 
 ## Troubleshooting
 
 ### Shortcut Not Working
 
-1. Check if extension is enabled
+1. Check if the extension is enabled
 2. Try refreshing the page
-3. If platform uses iframe, try clicking outside the iframe, and then press the shortcut key.
+3. If the platform uses an iframe, try clicking outside the iframe, then press the shortcut key
 
 ### Video Not Detected
 
 1. Refresh the page
 2. Disable and re-enable the extension
-3. Reload the extension from chrome://extensions
+3. Reload the extension from `chrome://extensions`
 
 ### Development
 
@@ -125,22 +127,24 @@ Important: Due to cross-origin security, there are some limitations:
 2. Run tests:
 
    ```bash
-   npm run test
+   npm test
    ```
 
-3. Build for production:
+3. **Version:** Bump the extension version only in **`package.json`** (`version` field). Webpack injects it into **`dist/manifest.json`** when you build.
+
+4. Build for production:
 
    ```bash
    npm run package
    ```
 
-   This will create a production build in the `dist` directory and a ZIP file ready for the Chrome Web Store.
+   This creates a production build in the `dist` directory and a ZIP file suitable for store submission.
 
-   -> For Firefox, you need to 'mv firefox/manifest.json src/manifest.json' and then run the same command.
+   For Firefox, swap in `firefox/manifest.json` as described in **From Source** above, then run the same command.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome. Open a pull request on the Git remote you use for this repository, or coordinate with the maintainer by email.
 
 ## Privacy & Permissions
 
@@ -151,18 +155,18 @@ The extension requires minimal permissions:
 - `storage`: For saving preferences
 - `alarms`: For consistent functionality
 
-We do not:
+This extension does not:
 
-- Collect any user data
+- Collect user data
 - Make external network requests
-- Process any video content
+- Process video content on remote servers
 
 ## Support
 
-- email: [elamine.beng@gmail.com](mailto:elamine.beng@gmail.com)
-- Issues: [GitHub Issues](https://github.com/bengmoh/filter-video/issues)
-- Feedback: [Feedback Form](https://forms.gle/muGcKNufR2XzAnVV9)
-- Source: [GitHub Repository](https://github.com/bengmoh/filter-video)
+- **Maintainer:** karas — [karas011029@gmail.com](mailto:karas011029@gmail.com)
+- **Upstream repository & issues:** [github.com/karas011029-svg/filter-video](https://github.com/karas011029-svg/video-filter.git)
+
+When you host your own fork publicly, add your clone URL and issue tracker here.
 
 ## Platform Support
 

@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const injectManifestVersion = require('./webpack/inject-manifest-version');
 
 module.exports = {
   mode: 'production',
@@ -34,11 +35,12 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { 
-          from: "src",
+        {
+          from: 'src',
           globOptions: {
-            ignore: ["**/*.js"] // Don't copy JS files as they'll be bundled
-          }
+            ignore: ['**/*.js'] // Don't copy JS files as they'll be bundled
+          },
+          transform: injectManifestVersion
         }
       ]
     })
