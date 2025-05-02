@@ -2,6 +2,7 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
+const injectManifestVersion = require('./webpack/inject-manifest-version');
 
 module.exports = {
   mode: 'production',
@@ -49,11 +50,12 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { 
-          from: "src",
+        {
+          from: 'src',
           globOptions: {
-            ignore: ["**/*.js"]
-          }
+            ignore: ['**/*.js']
+          },
+          transform: injectManifestVersion
         }
       ]
     }),

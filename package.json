@@ -1,6 +1,6 @@
 {
   "name": "filter-video",
-  "version": "1.0.0",
+  "version": "1.2.3",
   "description": "Filter videos using a shortcut. Control your watching experience on popular platforms.",
   "license": "GPL-3.0",
   "scripts": {
